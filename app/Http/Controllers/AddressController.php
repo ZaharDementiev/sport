@@ -16,9 +16,9 @@ class AddressController extends Controller
         if (!isset($_COOKIE[Client::CLIENT])) {
             return redirect('/');
         }
-        $client = Client::where('id', $_COOKIE[Client::CLIENT])->first();
-        $client->gym_id = $gym->id;
-        $client->save();
+//        $client = Client::where('id', $_COOKIE[Client::CLIENT])->first();
+//        $client->gym_id = $gym->id;
+//        $client->save();
         setcookie(Address::ADDRESS, $gym->id, time() + 7200, '/');
         if (isset($_COOKIE[Subscription::SUBSCRIPTION])) {
             return redirect()->route('staff');

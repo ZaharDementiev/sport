@@ -14,7 +14,7 @@ class AddReffsToTables extends Migration
     public function up()
     {
         Schema::table('clients', function (Blueprint $table) {
-            $table->foreign('gym_id')->references('id')->on('addresses')->onDelete('cascade');
+//            $table->foreign('gym_id')->references('id')->on('addresses')->onDelete('cascade');
             $table->foreign('trainer_id')->references('id')->on('users')->onDelete('cascade');
         });
 
@@ -39,8 +39,8 @@ class AddReffsToTables extends Migration
         Schema::table('clients', function (Blueprint $table) {
             $table->dropForeign('clients_trainer_id_foreign');
             $table->dropColumn('trainer_id');
-            $table->dropForeign('clients_gym_id_foreign');
-            $table->dropColumn('gym_id');
+//            $table->dropForeign('clients_gym_id_foreign');
+//            $table->dropColumn('gym_id');
         });
 
         Schema::table('money', function (Blueprint $table) {

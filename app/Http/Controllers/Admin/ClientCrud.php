@@ -145,24 +145,24 @@ abstract class ClientCrud extends CrudController
                 [
                     'name'    => 'trainer_id',
                     'type'    => 'hidden',
-                    'value'   => backpack_user()->id
+                    'value'   => backpack_user()->id,
                 ]
             ]);
         }
         if (backpack_user()->type == User::ADMIN) {
             $this->crud->addFields([
-                [
-                    'name'      => 'gym_id',
-                    'label'     => 'Зал',
-                    'type'      => 'select2_from_array',
-                    'options'   => Address::getGyms(),
-                ],
 //                [
-//                    'name' => 'trainer_id',
-//                    'label' => 'Тренер',
-//                    'type' => 'select2_from_array',
-//                    'options'   => backpack_user()->trainers(),
-//                ]
+//                    'name'      => 'gym_id',
+//                    'label'     => 'Зал',
+//                    'type'      => 'select2_from_array',
+//                    'options'   => Address::getGyms(),
+//                ],
+                [
+                    'name' => 'trainer_id',
+                    'label' => 'Тренер',
+                    'type' => 'select2_from_array',
+                    'options'   => User::where('type', User::TRAINER)->pluck('name', 'id')->toArray(),
+                ]
             ]);
         }
     }

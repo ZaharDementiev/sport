@@ -31,7 +31,6 @@ class SubscriptionCrudController extends CrudController
         $this->crud->setRoute(backpack_url('subscriptions'));
     }
 
-
     public function setupCreateOperation()
     {
         $this->addUserFields();
@@ -73,7 +72,6 @@ class SubscriptionCrudController extends CrudController
             ],
         ]);
     }
-
 
     protected function addUserFields()
     {

@@ -24,9 +24,9 @@ class User extends Authenticatable
     public const EVEN = "ПН, СР, ПТ";
     public const ODD = "ВТ, ЧТ, СБ";
 
-    public const TRAINER = 0;
-    public const MANAGER = 1;
-    public const ADMIN = 2;
+    public const TRAINER = 'trainer';
+    public const MANAGER = 'manager';
+    public const ADMIN = 'admin';
 
     public function workingDays()
     {
@@ -53,16 +53,14 @@ class User extends Authenticatable
     {
         $trainers = User::where('type', self::TRAINER)->where('gym_id', $this->gym_id)->get();
         $addresses = [];
-        $count = 1;
         foreach ($trainers as $trainer) {
-            $addresses[$count] = $trainer->name;
-            $count++;
+            $addresses[$trainer->id] = $trainer->name;
         }
         return $addresses;
     }
 
     public function getRole()
     {
-        return DB::table('roles')->where('id', $this->type + 1)->first();
+        return DB::table('roles')->where('name', $this->type)->first();
     }
 }

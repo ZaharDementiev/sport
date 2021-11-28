@@ -29,7 +29,7 @@ class ClientsTable extends Seeder
                 'name' => $client[0],
                 'phone' => $client[1],
                 'password' => Hash::make($client[2]),
-                'gym_id' => $client[3],
+//                'gym_id' => $client[3],
                 'trainer_id' => $client[4],
                 'training_time' => $client[5],
                 'payed' => $client[6],

@@ -52,11 +52,6 @@ class MoneyCrudController extends CrudController
     {
         $this->crud->setColumns([
             [
-                'name' => 'amount',
-                'label' => 'Сумма',
-                'type' => 'number',
-            ],
-            [
                 'name' => 'client',
                 'label' => 'Клиент',
                 'type' => 'model_function',

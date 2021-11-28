@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('password');
-            $table->integer('gym_id')->nullable();
+//            $table->integer('gym_id')->nullable();
             $table->integer('trainer_id')->nullable();
             $table->time('training_time')->nullable();
             $table->timestamp('payed')->nullable();

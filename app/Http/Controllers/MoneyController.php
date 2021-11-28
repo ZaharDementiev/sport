@@ -17,7 +17,7 @@ class MoneyController extends Controller
         $sub = Subscription::where('id', $_COOKIE[Subscription::SUBSCRIPTION])->first();
         $client = Client::where('id', $_COOKIE[Client::CLIENT])->first();
         $money = new Money();
-        $money->amount = $sub->amount;
+//        $money->amount = $sub->amount;
         $money->client_id = $client->id;
         $money->subscription_id = $sub->id;
         $money->save();

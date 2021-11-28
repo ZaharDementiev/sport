@@ -16,19 +16,20 @@ class GymClientCrudController extends ClientCrud
     function mainSettingsSetup()
     {
         $this->crud->setRoute(backpack_url('gym-clients'));
-        $this->crud->addClause('where', 'gym_id', backpack_user()->gym_id);
+        $trainers = User::where('type', User::TRAINER)->where('gym_id', backpack_user()->gym_id)->pluck('id')->toArray();
+        $this->crud->addClause('whereIn', 'trainer_id', $trainers);
     }
 
     public function fieldsSetup()
     {
         $this->crud->addColumns([
-            [
-                'name' => 'gym',
-                'label' => 'Зал',
-                'type' => 'model_function',
-                'function_name' => 'userGym',
-                'limit' => 1000,
-            ],
+//            [
+//                'name' => 'gym',
+//                'label' => 'Зал',
+//                'type' => 'model_function',
+//                'function_name' => 'userGym',
+//                'limit' => 1000,
+//            ],
             [
                 'name' => 'trainer',
                 'label' => 'Тренер',

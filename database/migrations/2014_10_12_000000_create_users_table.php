@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
 //            $table->bigInteger('salary');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('type')->default(0);
+            $table->enum('type', ['trainer', 'manager', 'admin'])->default(0);
             $table->bigInteger('gym_id');
             $table->rememberToken();
             $table->timestamps();
